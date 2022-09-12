@@ -13,4 +13,4 @@ from projects.models import Project
 def ProjectListView(request):
     context = {"projects": Project.objects.all()}
 
-    return render(request, "projects/list_projects.html", context)
+    return render(request, "projects/list.html", context)
