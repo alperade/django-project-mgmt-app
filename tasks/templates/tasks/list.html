@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <div>
+    <h1>My Tasks</h1>
+    <p>
+        <a href="{% url 'create_project' %}">Create a new project</a>
+    </p>
+    {% if tasks %}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Is completed</th>
+            </tr>
+        </thead>
+        {% for task in tasks %}
+        <tbody>
+            <tr>
+                <td>{{ task.name }}</td>
+                <td>{{ task.start_date|date:"M d, Y" }}</td>
+                <td>{{ task.due_date|date:"M d, Y" }}</td>
+                <td>{% if taks.is_completed %} Done {% endif %}</td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+    {% else %}
+    <p>You have no tasks</p>
+    {% endif %}
+    </div>
+</main>
+{% endblock content %}

@@ -25,8 +25,8 @@
             <tr>
               <td>{{ task.name }}</td>
               <td>{{ task.assignee }}</td>
-              <td>{{ task.start_date|date:"m-d-Y" }}</td>
-              <td>{{ task.due_date|date:"m-d-Y" }}</td>
+              <td>{{ task.start_date|date:"M d, Y" }}</td>
+              <td>{{ task.due_date|date:"M d, Y" }}</td>
               <td>{% if task.is_completed %} Yes {% else %} No {% endif %}</td>
             </tr>
           </tbody>
