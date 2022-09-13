@@ -6,6 +6,9 @@
         <h1>{{ projects.name }}</h1>
         <p>{{ projects.description }}</p>
         <h2>Tasks</h2>
+        <p>
+          <a href="{% url 'create_task' %}">Create a new task</a>
+        </p>
         {% if projects.tasks.all %}
         <table>
           <thead>
@@ -22,8 +25,8 @@
             <tr>
               <td>{{ task.name }}</td>
               <td>{{ task.assignee }}</td>
-              <td>{{ task.start_date }}</td>
-              <td>{{ task.due_date }}</td>
+              <td>{{ task.start_date|date:"m-d-Y" }}</td>
+              <td>{{ task.due_date|date:"m-d-Y" }}</td>
               <td>{% if task.is_completed %} Yes {% else %} No {% endif %}</td>
             </tr>
           </tbody>
